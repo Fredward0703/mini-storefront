@@ -34,7 +34,9 @@ export default function Catalog(){
         if(category !=="All") {
             results = results.filter (p => p.category === category);
         }
-        if(maxPrice && Number(products.price) > Number(maxPrice)) return false;
+        if(maxPrice) {
+            results = results.filter(p => p.price <= maxPrice)
+        };
         setFiltered(results);
     }, [category, maxPrice, products]);
 
