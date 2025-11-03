@@ -1,6 +1,11 @@
 'use client';
 import { useState, useEffect } from "react";
 import StatusMessage from "./StatusMessage";
+import ProductList from "./ProductList";
+import ProductCard from "./ProductCard";
+import CategoryFilter from "./CategoryFilter";
+import PriceFilter from "./PriceFilter";
+import CartSummary from "./CartSummary";
 
 export default function Catalog(){
     const [products, setProducts] = useState([]);
@@ -26,6 +31,7 @@ export default function Catalog(){
     return (
         <>
         <h1>Mini Storefront</h1>
+        <pre>{JSON.stringify(products, null, 2)}</pre>
         </>
     );
 }
