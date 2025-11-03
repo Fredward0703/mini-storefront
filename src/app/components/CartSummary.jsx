@@ -5,9 +5,10 @@ export default function CartSummary({ cart, setCart}) {
     for (let i = 0; i < cart.length; i++) {
         total += cart[i].price * cart[i].qty;
     }
+
     function removeOne(id) {
         const updatedCart = [];
-        for (let i = 0; i = cart.length; i++) {
+        for (let i = 0; i < cart.length; i++) {
             const item = cart[i];
             if (item.id === id) {
                 if (item.qty > 1) {
@@ -24,8 +25,8 @@ export default function CartSummary({ cart, setCart}) {
     }
 
     return (
-        <>
-        <h2>Cart Summary</h2>
+        <div style={{margainTop:"20px", borderTop:"1px solid white", paddingTop:"10px"}}>
+        <h2>Cart Summary: </h2>
 
         {cart.length === 0 ? (
             <p>Your cart is empty.</p>
@@ -34,7 +35,7 @@ export default function CartSummary({ cart, setCart}) {
             <ul>
                 {cart.map(item => (
                     <li key={item.id}>
-                        {item.name} (x(item.qty)) - ${item.price * item.qty}
+                        {item.name} (x{item.qty}) - ${item.price * item.qty}
                         <button style={{ marginLeft:"5px" }} onClick={() => removeOne(item.id)}>Remove One</button>
                     </li>
                 ))}
@@ -43,6 +44,6 @@ export default function CartSummary({ cart, setCart}) {
             <button onClick={clearCart}>Clear Cart</button>
             </>
         )}
-        </>
+        </div>
     );
 }
